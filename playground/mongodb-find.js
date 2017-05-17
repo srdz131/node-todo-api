@@ -15,13 +15,20 @@ MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, db)=>{
   //   console.log('unable to fetch',err);
   // } );
 
-  db.collection('Todos').find({
+  // db.collection('Todos').find({
+  //
+  // }).count().then((count)=>{
+  //   console.log(`Todos count: ${count}`)
+  // }, (err)=>{
+  //   console.log('unable to fetch',err);
+  // } );
 
-  }).count().then((count)=>{
-    console.log(`Todos count: ${count}`)
+  db.collection('Users').find({username: 'Djans'})
+  .toArray().then((data)=>{
+    console.log(JSON.stringify(data, undefined, 2))
   }, (err)=>{
-    console.log('unable to fetch',err);
-  } );
+    console.log('error has been occured :',err);
+  })
 
   //db.close();
 });
