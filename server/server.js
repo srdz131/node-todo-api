@@ -65,7 +65,7 @@ app.post('/todos',(req,res)=>{
       if(!todo){
       return res.status(404).send('Id not found.');
     }
-      res.send('Item deleted');
+      res.send({todo});
 
     }).catch((e)=>{
       res.status(400).send()
